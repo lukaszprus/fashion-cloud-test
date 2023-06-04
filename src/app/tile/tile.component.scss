@@ -1,0 +1,13 @@
+.wrapper {
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+
+  .duration, .description {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}

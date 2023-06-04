@@ -1,0 +1,21 @@
+<app-filters (filtersChange)="filtersSubj.next($event)"></app-filters>
+
+<app-sorter [config]="{ key: 'price', label: 'Price' }" (sorterChange)="sorterSubj.next($event)"></app-sorter>
+
+<ng-container *ngIf="products?.length">
+  <app-pagination [page]="page" [itemsTotal]="itemsTotal"></app-pagination>
+
+  <div class="container text-center">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
+      <div class="col" *ngFor="let product of products">
+        <app-tile [product]="product"></app-tile>
+      </div>
+    </div>
+  </div>
+
+  <app-pagination [page]="page" [itemsTotal]="itemsTotal"></app-pagination>
+</ng-container>
+
+<div *ngIf="products && !products.length">
+  No items
+</div>

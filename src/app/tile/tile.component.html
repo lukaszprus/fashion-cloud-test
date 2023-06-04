@@ -1,0 +1,7 @@
+<a [routerLink]="[product.id]">
+  <div class="wrapper" (mouseenter)="showDescription = true" (mouseleave)="showDescription = false">
+    <img [src]="product.thumbnail">
+    <div class="bg-black p-2 text-white bg-opacity-75 description" *ngIf="showDescription">{{ product.description }}</div>
+  </div>
+  <p>{{ product.title }}</p>
+</a>

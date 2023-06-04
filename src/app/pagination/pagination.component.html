@@ -1,0 +1,33 @@
+<nav *ngIf="range && range.length > 1" aria-label="Items">
+  <ul class="pagination justify-content-center">
+    <ng-container *ngIf="page! > 1">
+      <li class="page-item">
+        <a class="page-link" routerLink="." [queryParams]="{ page: 1 }" queryParamsHandling="merge" aria-label="First">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" routerLink="." [queryParams]="{ page: page! -1 }" queryParamsHandling="merge" aria-label="Previous">
+          <span aria-hidden="true">&lsaquo;</span>
+        </a>
+      </li>
+    </ng-container>
+
+    <li *ngFor="let p of range" class="page-item" [class.active]="p === page ">
+      <a class="page-link" routerLink="." [queryParams]="{ page: p }" queryParamsHandling="merge">{{ p }}</a>
+    </li>
+
+    <ng-container *ngIf="page! < pagesTotal!">
+      <li class="page-item">
+        <a class="page-link" routerLink="." [queryParams]="{ page: page! + 1 }" queryParamsHandling="merge" aria-label="Next">
+          <span aria-hidden="true">&rsaquo;</span>
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" routerLink="." [queryParams]="{ page: pagesTotal }" queryParamsHandling="merge" aria-label="Last">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>
